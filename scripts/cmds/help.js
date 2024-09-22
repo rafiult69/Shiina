@@ -14,16 +14,6 @@ const commandInfoMap = {
 			description: "An artificial Intelligence you can ask for anything.",
 			guide: "%1blackbox what is life?"
 	},
-	claire: {
-			name: "claire",
-			description: "An AI based on GPT-4",
-			guide: "%1claire what is life?"
-	},
-	chords: {
-			name: "chords",
-			description: "Searches lyrics with chords",
-			guide: "%1chords all of me"
-	},
 	dalle: {
 			name: "dalle",
 			description: "Creates an image based on your imagination",
@@ -54,11 +44,6 @@ const commandInfoMap = {
 			description: "View all commands",
 			guide: "%1help\n%1help <command name>"
 	},
-	knight: {
-			name: "knight",
-			description: "A medieval knight AI you can talk to",
-			guide: "%1knight tell me about yourself."
-	},
 	lyrics: {
 			name: "lyrics",
 			description: "Fetches lyrics of a song",
@@ -68,11 +53,6 @@ const commandInfoMap = {
 			name: "pinterest",
 			description: "Searches images on Pinterest",
 			guide: "%1pinterest cat -10"
-	},
-	poet: {
-			name: "poet",
-			description: "A poetic AI persona who shares enlightenment through poems and poetry.",
-			guide: "%1poet give me advice"
 	},
 	prefix: {
 			name: "prefix",
@@ -99,11 +79,6 @@ const commandInfoMap = {
 			description: "Get Temporary Emails and its Inbox messages",
 			guide: "%1tempmail create\n%1tempmail inbox <email>"
 	},
-	tia: {
-			name: "tia",
-			description: "A girl you can talk with when bored",
-			guide: "%1tia do you have a boyfriend?"
-	},
 	translate: {
 			name: "translate",
 			description: "Translate to any language",
@@ -113,11 +88,6 @@ const commandInfoMap = {
 			name: "unsend",
 			description: "Deletes bot messages",
 			guide: "Reply to bot message and type %1unsend"
-	},
-	uptime: {
-			name: "uptime",
-			description: "See how long the bot has been running.",
-			guide: "%1uptime"
 	}
 };
 
@@ -153,12 +123,6 @@ module.exports = {
 │ %1 Translate
 ╰─━━━━━━━━━╾─╯
 ╭─╼━━━━━━━━╾─╮
-│  🗨 | 𝙰𝚒 - 𝙲𝚑𝚊𝚝 
-│ %1 Knight
-│ %1 Poet
-│ %1 Tia
-╰─━━━━━━━━━╾─╯
-╭─╼━━━━━━━━╾─╮
 │  🖼 | 𝙸𝚖𝚊𝚐𝚎
 │ %1 Dalle
 │ %1 Gmage
@@ -168,7 +132,6 @@ module.exports = {
 ╰─━━━━━━━━━╾─╯
 ╭─╼━━━━━━━━╾─╮
 │  🎧 | 𝙼𝚞𝚜𝚒𝚌
-│ %1 Chords 
 │ %1 Lyrics
 │ %1 Spotify
 ╰─━━━━━━━━━╾─╯
