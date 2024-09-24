@@ -86,3 +86,5 @@ export default async function ({ message, args, getLang, extra, data, userPermis
 
     message.unsend(processingMessage.messageID);
 }
+
+export { config, langData };
