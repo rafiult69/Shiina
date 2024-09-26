@@ -1,95 +1,74 @@
-const axios = require('axios');
-const fs = require('fs');
-const path = require('path');
+import fs from 'fs';
+import path from 'path';
+import samirapi from 'samirapi';
 
-module.exports = {
-  config: {
+const config = {
     name: "alldl",
-    version: "1.6",
-    author: "Samir Œ",
-    countDown: 5,
-    role: 0,
-    shortDescription: "download content by link",
-    longDescription: "download video content using link from Facebook, Instagram, Tiktok, Youtube, Twitter, and Spotify audio",
-    category: "media",
-    guide: "{pn} link"
-  },
+    aliases: ["ad"],
+    description: "Download media from Facebook, TikTok, Spotify, Twitter, or Instagram using a single command.",
+    usage: "[link]",
+    cooldown: 5,
+    permissions: [1, 2],
+    credits: "Aljur Pogoy",
+};
 
-  onStart: async function ({ message, args }) {
-    const link = args.join(" ");
+const cachePath = './plugins/commands/cache';
+
+async function onCall({ message, args }) {
+    const link = args[0];
+
     if (!link) {
-      return message.reply(`Please provide the link.`);
-    } else {
-      const BASE_URLS = [
-        'https://samirxpikachuio.onrender.com',
-        'https://www.samirxpikachu.run' + '.place',
-        'http://samirxzy.onrender.com'
-      ];
-
-      let BASE_URL;
-      let selectedUrlIndex = 0;
-
-      if (link.includes("facebook.com")) {
-        BASE_URL = `/fbdl?vid_url=${encodeURIComponent(link)}`;
-      } else if (link.includes("twitter.com")) {
-        BASE_URL = `/twitter?url=${encodeURIComponent(link)}`;
-      } else if (link.includes("tiktok.com")) {
-        BASE_URL = `/tiktok?url=${encodeURIComponent(link)}`;
-      } else if (link.includes("open.spotify.com")) {
-        BASE_URL = `/spotifydl?url=${encodeURIComponent(link)}`;
-      } else if (link.includes("youtu.be") || link.includes("youtube.com")) {
-        BASE_URL = `/ytdl?url=${encodeURIComponent(link)}`;
-      } else if (link.includes("instagram.com")) {
-        BASE_URL = `/igdl?url=${encodeURIComponent(link)}`;
-      } else {
-        return message.reply(`Unsupported source.`);
-      }
-
-      message.reply("Processing your request... Please wait.");
-
-      async function fetchContent() {
-        try {
-          let response = await axios.get(`${BASE_URLS[selectedUrlIndex]}${BASE_URL}`);
-          return response;
-        } catch (error) {
-          if (selectedUrlIndex < BASE_URLS.length - 1) {
-            selectedUrlIndex++;
-            return await fetchContent();
-          } else {
-            throw new Error("All fallback URLs failed.");
-          }
-        }
-      }
-
-      try {
-        const res = await fetchContent();
-        
-        let contentUrl;
-
-        if (link.includes("facebook.com")) {
-          contentUrl = res.data.links["Download High Quality"];
-        } else if (link.includes("twitter.com")) {
-          contentUrl = res.data.HD;
-        } else if (link.includes("tiktok.com")) {
-          contentUrl = res.data.hdplay;
-        } else if (link.includes("instagram.com")) {
-          const instagramResponse = res.data;
-          if (Array.isArray(instagramResponse.url) && instagramResponse.url.length > 0) {
-            const mp4UrlObject = instagramResponse.url.find(obj => obj.type === 'mp4');
-            if (mp4UrlObject) {
-              contentUrl = mp4UrlObject.url;
-            }
-          }
-        }
-
-        const response = {
-          attachment: await global.utils.getStreamFromURL(contentUrl)
-        };
-
-        await message.reply(response);
-      } catch (error) {
-        message.reply(`Sorry, the content could not be downloaded.`);
-      }
+        return message.reply("Please provide a link to download.");
     }
-  }
+
+    try {
+        let data;
+        const url = new URL(link);
+
+        // Determine the platform and call the appropriate function
+        if (url.hostname.includes('facebook.com')) {
+            data = await samirapi.facebook(link);
+        } else if (url.hostname.includes('tiktok.com')) {
+            data = await samirapi.tiktok(link);
+        } else if (url.hostname.includes('spotify.com')) {
+            data = await samirapi.spotifydl(link);
+        } else if (url.hostname.includes('twitter.com')) {
+            data = await samirapi.Twitter(link);
+        } else if (url.hostname.includes('instagram.com')) {
+            data = await samirapi.Instagram(link);
+        } else {
+            return message.reply("Unsupported link. Please provide a valid Facebook, TikTok, Spotify, Twitter, or Instagram link.");
+        }
+
+        // Check if the file is available in the data
+        if (!data || !data.file) {
+            throw new Error("Failed to download or retrieve the file. The response did not include valid content.");
+        }
+
+        // Create a valid file path and save the file
+        const filePath = path.join(cachePath, `${Date.now()}_${data.title || 'download'}.mp4`);
+        fs.writeFileSync(filePath, data.file, 'binary');
+
+        // Reply with the downloaded file
+        await message.reply({ 
+            body: "Here is your downloaded file:", 
+            attachment: fs.createReadStream(filePath) 
+        });
+
+        // Clean up the file after sending
+        fs.unlinkSync(filePath);
+
+    } catch (error) {
+        console.error("Download failed:", error.message);
+        if (error.response && error.response.data && error.response.data.error) {
+            await message.reply(`Failed to download content: ${error.response.data.error}`);
+        } else {
+            await message.reply(`An error occurred: ${error.message}`);
+        }
+    }
+}
+
+export default {
+    config,
+    onCall
 };
