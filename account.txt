@@ -1,1 +1,143 @@
-
+[
+            {
+                                "key": "dbln",
+                                                "value": "%7B%2261566330632113%22%3A%22nFUEpxfZ%22%2C%2261563070871645%22%3A%22OR39onsd%22%2C%2261565876685722%22%3A%22OS1UWqaU%22%7D",
+                                                                "domain": "facebook.com",
+                                                                                "path": "/login/device-based/",
+                                                                                                "hostOnly": false,
+                                                                                                                "creation": "2024-09-24T07:05:42.529Z",
+                                                                                                                                "lastAccessed": "2024-09-24T07:05:42.530Z"
+            },
+                    {
+                                        "key": "datr",
+                                                        "value": "7q7xZiuCeXt9gsdd-O2CKCLo",
+                                                                        "domain": "facebook.com",
+                                                                                        "path": "/",
+                                                                                                        "hostOnly": false,
+                                                                                                                        "creation": "2024-09-24T07:05:42.530Z",
+                                                                                                                                        "lastAccessed": "2024-09-24T07:05:42.530Z"
+                    },
+                            {
+                                                "key": "sb",
+                                                                "value": "7q7xZihSuKmJVa32DYFaxCZ4",
+                                                                                "domain": "facebook.com",
+                                                                                                "path": "/",
+                                                                                                                "hostOnly": false,
+                                                                                                                                "creation": "2024-09-24T07:05:42.530Z",
+                                                                                                                                                "lastAccessed": "2024-09-24T07:05:42.530Z"
+                            },
+                                    {
+                                                        "key": "locale",
+                                                                        "value": "en_US",
+                                                                                        "domain": "facebook.com",
+                                                                                                        "path": "/",
+                                                                                                                        "hostOnly": false,
+                                                                                                                                        "creation": "2024-09-24T07:05:42.530Z",
+                                                                                                                                                        "lastAccessed": "2024-09-24T07:05:42.530Z"
+                                    },
+                                            {
+                                                                "key": "vpd",
+                                                                                "value": "v1%3B668x360x2.5506443977355957",
+                                                                                                "domain": "facebook.com",
+                                                                                                                "path": "/",
+                                                                                                                                "hostOnly": false,
+                                                                                                                                                "creation": "2024-09-24T07:05:42.530Z",
+                                                                                                                                                                "lastAccessed": "2024-09-24T07:05:42.530Z"
+                                            },
+                                                    {
+                                                                        "key": "ps_l",
+                                                                                        "value": "1",
+                                                                                                        "domain": "facebook.com",
+                                                                                                                        "path": "/",
+                                                                                                                                        "hostOnly": false,
+                                                                                                                                                        "creation": "2024-09-24T07:05:42.530Z",
+                                                                                                                                                                        "lastAccessed": "2024-09-24T07:05:42.530Z"
+                                                    },
+                                                            {
+                                                                                "key": "ps_n",
+                                                                                                "value": "1",
+                                                                                                                "domain": "facebook.com",
+                                                                                                                                "path": "/",
+                                                                                                                                                "hostOnly": false,
+                                                                                                                                                                "creation": "2024-09-24T07:05:42.530Z",
+                                                                                                                                                                                "lastAccessed": "2024-09-24T07:05:42.530Z"
+                                                            },
+                                                                    {
+                                                                                        "key": "m_pixel_ratio",
+                                                                                                        "value": "2.5506443977355957",
+                                                                                                                        "domain": "facebook.com",
+                                                                                                                                        "path": "/",
+                                                                                                                                                        "hostOnly": false,
+                                                                                                                                                                        "creation": "2024-09-24T07:05:42.530Z",
+                                                                                                                                                                                        "lastAccessed": "2024-09-24T07:05:42.530Z"
+                                                                    },
+                                                                            {
+                                                                                                "key": "wd",
+                                                                                                                "value": "423x785",
+                                                                                                                                "domain": "facebook.com",
+                                                                                                                                                "path": "/",
+                                                                                                                                                                "hostOnly": false,
+                                                                                                                                                                                "creation": "2024-09-24T07:05:42.530Z",
+                                                                                                                                                                                                "lastAccessed": "2024-09-24T07:05:42.530Z"
+                                                                            },
+                                                                                    {
+                                                                                                        "key": "c_user",
+                                                                                                                        "value": "61565876685722",
+                                                                                                                                        "domain": "facebook.com",
+                                                                                                                                                        "path": "/",
+                                                                                                                                                                        "hostOnly": false,
+                                                                                                                                                                                        "creation": "2024-09-24T07:05:42.530Z",
+                                                                                                                                                                                                        "lastAccessed": "2024-09-24T07:05:42.530Z"
+                                                                                    },
+                                                                                            {
+                                                                                                                "key": "fr",
+                                                                                                                                "value": "0sqw9snTWxmHQlvRD.AWUK8KEMGbD99dRy5KXcatvpWsI.Bm8a7u..AAA.0.0.Bm8mS5.AWWvqkOYIQU",
+                                                                                                                                                "domain": "facebook.com",
+                                                                                                                                                                "path": "/",
+                                                                                                                                                                                "hostOnly": false,
+                                                                                                                                                                                                "creation": "2024-09-24T07:05:42.530Z",
+                                                                                                                                                                                                                "lastAccessed": "2024-09-24T07:05:42.530Z"
+                                                                                            },
+                                                                                                    {
+                                                                                                                        "key": "xs",
+                                                                                                                                        "value": "20%3Ab-awRun7ha-yvA%3A2%3A1727161530%3A-1%3A-1",
+                                                                                                                                                        "domain": "facebook.com",
+                                                                                                                                                                        "path": "/",
+                                                                                                                                                                                        "hostOnly": false,
+                                                                                                                                                                                                        "creation": "2024-09-24T07:05:42.530Z",
+                                                                                                                                                                                                                        "lastAccessed": "2024-09-24T07:05:42.530Z"
+                                                                                                    },
+                                                                                                            {
+                                                                                                                                "key": "fbl_st",
+                                                                                                                                                "value": "101421110%3BT%3A28786025",
+                                                                                                                                                                "domain": "facebook.com",
+                                                                                                                                                                                "path": "/",
+                                                                                                                                                                                                "hostOnly": false,
+                                                                                                                                                                                                                "creation": "2024-09-24T07:05:42.530Z",
+                                                                                                                                                                                                                                "lastAccessed": "2024-09-24T07:05:42.530Z"
+                                                                                                            },
+                                                                                                                    {
+                                                                                                                                        "key": "wl_cbv",
+                                                                                                                                                        "value": "v2%3Bclient_version%3A2629%3Btimestamp%3A1727161533",
+                                                                                                                                                                        "domain": "facebook.com",
+                                                                                                                                                                                        "path": "/",
+                                                                                                                                                                                                        "hostOnly": false,
+                                                                                                                                                                                                                        "creation": "2024-09-24T07:05:42.530Z",
+                                                                                                                                                                                                                                        "lastAccessed": "2024-09-24T07:05:42.530Z"
+                                                                                                                    }
+]
+                                                                                                                    }
+                                                                                                            }
+                                                                                                    }
+                                                                                            }
+                                                                                    }
+                                                                            }
+                                                                    }
+                                                            }
+                                                    }
+                                            }
+                                    }
+                            }
+                    }
+            }
+]
