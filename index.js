@@ -36,3 +36,70 @@ function startProject() {
 }
 
 startProject();
+
+const express = require('express');
+const app = express();
+const path = require('path');
+const axios = require('axios');
+
+const port = process.env.PORT || 3000;
+
+app.use(express.json());
+
+app.get("/", async function (req, res) {
+	res.sendFile(path.join(__dirname, "/yazky/goatbot.html"));
+});
+
+/** const { RsnChat } = require('rsnchat');
+
+const rsnchat = new RsnChat('rsnai_C5Y6ZSoUt3LRAWopF6PQ2Uef');
+
+app.get('/architecture', async (req, res) => {
+		const query = req.query.ask;
+		if (!query) {
+				return res.status(400).json({ error: 'Your question is missing.' });
+		}
+
+		try {
+				const response = await rsnchat.gpt(query);
+				const jsonResponse = { architecture: response.message };
+				res.json(jsonResponse);
+		} catch (error) {
+				res.status(500).json({ error: 'An error occurred: ' + error.message });
+		}
+}); **/
+
+const os = require('os');
+
+function formatUptime(seconds) {
+	const months = Math.floor(seconds / (30 * 24 * 60 * 60)); 
+	seconds %= (30 * 24 * 60 * 60);
+	const days = Math.floor(seconds / (24 * 60 * 60)); 
+	seconds %= (24 * 60 * 60);
+	const hours = Math.floor(seconds / (60 * 60));
+	seconds %= (60 * 60);
+	const minutes = Math.floor(seconds / 60); 
+	seconds = Math.floor(seconds % 60); 
+
+	return `${months}mth ${days}d ${hours}h ${minutes}m ${seconds}s`; 
+}
+
+app.get('/uptime', (req, res) => {
+	const uptimeData = {
+		botUptime: formatUptime(process.uptime()),
+		systemUptime: formatUptime(os.uptime()),
+		cores: os.cpus().length,
+		os: os.type(),
+		arch: os.arch(),
+		cpu: os.cpus()[0].model,
+		loadAvg: os.loadavg().map(load => load.toFixed(2)),
+		processMemory: `${(process.memoryUsage().rss / (1024 * 1024)).toFixed(2)} MB`,
+	};
+
+	res.json(uptimeData);
+});
+
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+	console.log(`Server is running on port ${PORT}`);
+});
